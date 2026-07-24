@@ -1,0 +1,120 @@
+1. Maximum and Minimum Among Three Numbers
+import java.util.Scanner;
+
+public class MaxMinThreeNumbers {
+
+    static int findMaximum(int a, int b, int c) {
+        if (a >= b && a >= c) {
+            return a;
+        } else if (b >= a && b >= c) {
+            return b;
+        } else {
+            return c;
+        }
+    }
+
+    static int findMinimum(int a, int b, int c) {
+        if (a <= b && a <= c) {
+            return a;
+        } else if (b <= a && b <= c) {
+            return b;
+        } else {
+            return c;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter three numbers: ");
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+
+        System.out.println("Maximum number = " + findMaximum(a, b, c));
+        System.out.println("Minimum number = " + findMinimum(a, b, c));
+
+        sc.close();
+    }
+}
+output:Enter three numbers: 25 10 40
+Maximum number = 40
+Minimum number = 10
+2. Check Whether a Number is Even or Odd
+import java.util.Scanner;
+
+public class EvenOdd {
+
+    static void checkEvenOdd(int number) {
+        if (number % 2 == 0) {
+            System.out.println(number + " is Even");
+        } else {
+            System.out.println(number + " is Odd");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+
+        checkEvenOdd(number);
+
+        sc.close();
+    }
+}
+output:Enter a number: 15
+15 is Odd
+3. Check Whether a Person is Eligible to Vote
+import java.util.Scanner;
+
+public class VotingEligibility {
+
+    static void checkEligibility(int age) {
+        if (age >= 18) {
+            System.out.println("Eligible to vote");
+        } else {
+            System.out.println("Not eligible to vote");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter your age: ");
+        int age = sc.nextInt();
+
+        checkEligibility(age);
+
+        sc.close();
+    }
+}
+output:Enter your age: 20
+Eligible to vote
+4. Find the Sum of Two Numbers Using a Method
+import java.util.Scanner;
+
+public class SumOfTwoNumbers {
+
+    static int calculateSum(int a, int b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter two numbers: ");
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        int sum = calculateSum(a, b);
+
+        System.out.println("Sum = " + sum);
+
+        sc.close();
+    }
+}
+output:Enter two numbers: 25 35
+Sum = 60
+
