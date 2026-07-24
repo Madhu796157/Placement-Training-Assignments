@@ -1,0 +1,262 @@
+Basic Java Programs:
+1. Area of Circle
+import java.util.Scanner;
+
+public class AreaOfCircle {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter radius: ");
+        double radius = sc.nextDouble();
+
+        double area = Math.PI * radius * radius;
+
+        System.out.println("Area of Circle = " + area);
+
+        sc.close();
+    }
+}
+output:Enter radius: 5
+Area of Circle = 78.53981633974483
+2. Area of Triangle
+import java.util.Scanner;
+
+public class AreaOfTriangle {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter base: ");
+        double base = sc.nextDouble();
+
+        System.out.print("Enter height: ");
+        double height = sc.nextDouble();
+
+        double area = 0.5 * base * height;
+
+        System.out.println("Area of Triangle = " + area);
+
+        sc.close();
+        output:Enter base: 10
+Enter height: 5
+Area of Triangle = 25.0
+3. Area of Rectangle
+import java.util.Scanner;
+
+public class AreaOfRectangle {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter length: ");
+        double length = sc.nextDouble();
+
+        System.out.print("Enter width: ");
+        double width = sc.nextDouble();
+
+        double area = length * width;
+
+        System.out.println("Area of Rectangle = " + area);
+
+        sc.close();
+    }
+}
+output:Enter length: 10
+Enter width: 5
+Area of Rectangle = 50.0
+4. Area of Isosceles Triangle
+import java.util.Scanner;
+
+public class AreaOfIsoscelesTriangle {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter base: ");
+        double base = sc.nextDouble();
+
+        System.out.print("Enter height: ");
+        double height = sc.nextDouble();
+
+        double area = 0.5 * base * height;
+
+        System.out.println("Area of Isosceles Triangle = " + area);
+
+        sc.close();
+    }
+}
+output:Enter base: 8
+Enter height: 6
+Area of Isosceles Triangle = 24.0
+    }
+}
+5. Area of Parallelogram
+import java.util.Scanner;
+
+public class AreaOfParallelogram {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter base: ");
+        double base = sc.nextDouble();
+
+        System.out.print("Enter height: ");
+        double height = sc.nextDouble();
+
+        double area = base * height;
+
+        System.out.println("Area of Parallelogram = " + area);
+
+        sc.close();
+    }
+}
+output:Enter base: 12
+Enter height: 5
+Area of Parallelogram = 60.0
+Intermediate Java Programs:
+1. Factorial Program in Java
+import java.util.Scanner;
+
+public class Factorial {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+
+        long factorial = 1;
+
+        for (int i = 1; i <= n; i++) {
+            factorial = factorial * i;
+        }
+
+        System.out.println("Factorial of " + n + " = " + factorial);
+
+        sc.close();
+    }
+}
+output:Enter a number: 5
+Factorial of 5 = 120
+2. Calculate Electricity Bill
+import java.util.Scanner;
+
+public class ElectricityBill {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter units consumed: ");
+        int units = sc.nextInt();
+
+        double bill;
+
+        if (units <= 100) {
+            bill = units * 1.50;
+        } else if (units <= 200) {
+            bill = (100 * 1.50) + ((units - 100) * 2.50);
+        } else if (units <= 300) {
+            bill = (100 * 1.50) + (100 * 2.50)
+                    + ((units - 200) * 4.00);
+        } else {
+            bill = (100 * 1.50) + (100 * 2.50)
+                    + (100 * 4.00)
+                    + ((units - 300) * 6.00);
+        }
+
+        System.out.println("Electricity Bill = ₹" + bill);
+
+        sc.close();
+    }
+}
+output:Enter units consumed: 250
+Electricity Bill = ₹700.0
+3. Calculate Average of N Numbers
+import java.util.Scanner;
+
+public class AverageOfNumbers {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter how many numbers: ");
+        int n = sc.nextInt();
+
+        double sum = 0;
+
+        System.out.println("Enter " + n + " numbers:");
+
+        for (int i = 1; i <= n; i++) {
+            double num = sc.nextDouble();
+            sum = sum + num;
+        }
+
+        double average = sum / n;
+
+        System.out.println("Average = " + average);
+
+        sc.close();
+    }
+}
+output:Enter how many numbers: 5
+Enter 5 numbers:
+10
+20
+30
+40
+50
+Average = 30.0
+4. Calculate Discount of a Product
+import java.util.Scanner;
+
+public class ProductDiscount {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter product price: ");
+        double price = sc.nextDouble();
+
+        System.out.print("Enter discount percentage: ");
+        double discountPercentage = sc.nextDouble();
+
+        double discount = price * discountPercentage / 100;
+        double finalPrice = price - discount;
+
+        System.out.println("Discount Amount = ₹" + discount);
+        System.out.println("Final Price = ₹" + finalPrice);
+
+        sc.close();
+    }
+}
+output:Enter product price: 1000
+Enter discount percentage: 20
+Discount Amount = ₹200.0
+Final Price = ₹800.0
+5. Calculate Distance Between Two Points
+import java.util.Scanner;
+
+public class DistanceBetweenPoints {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter x1: ");
+        double x1 = sc.nextDouble();
+
+        System.out.print("Enter y1: ");
+        double y1 = sc.nextDouble();
+
+        System.out.print("Enter x2: ");
+        double x2 = sc.nextDouble();
+
+        System.out.print("Enter y2: ");
+        double y2 = sc.nextDouble();
+
+        double distance = Math.sqrt(
+                Math.pow(x2 - x1, 2) +
+                Math.pow(y2 - y1, 2)
+        );
+
+        System.out.println("Distance between two points = " + distance);
+
+        sc.close();
+    }
+}
+output:Enter x1: 2
+Enter y1: 3
+Enter x2: 5
+Enter y2: 7
+Distance between two points = 5.0
