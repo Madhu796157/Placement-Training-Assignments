@@ -1,0 +1,363 @@
+Easy:
+1. Build Array from Permutation
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] nums = {0, 2, 1, 5, 3, 4};
+        int[] ans = new int[nums.length];
+
+        for (int i = 0; i < nums.length; i++) {
+            ans[i] = nums[nums[i]];
+        }
+
+        System.out.println(Arrays.toString(ans));
+    }
+}
+output:[0, 1, 2, 4, 5, 3]
+2. Concatenation of Array
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 1};
+        int n = nums.length;
+
+        int[] ans = new int[2 * n];
+
+        for (int i = 0; i < n; i++) {
+            ans[i] = nums[i];
+            ans[i + n] = nums[i];
+        }
+
+        System.out.println(Arrays.toString(ans));
+    }
+}
+output:[1, 2, 1, 1, 2, 1]
+3. Running Sum of 1D Array
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3, 4};
+
+        for (int i = 1; i < nums.length; i++) {
+            nums[i] = nums[i] + nums[i - 1];
+        }
+
+        System.out.println(Arrays.toString(nums));
+    }
+}
+output:[1, 3, 6, 10]
+4. Richest Customer Wealth
+public class Main {
+    public static void main(String[] args) {
+        int[][] accounts = {
+            {1, 2, 3},
+            {3, 2, 1}
+        };
+
+        int maxWealth = 0;
+
+        for (int i = 0; i < accounts.length; i++) {
+            int wealth = 0;
+
+            for (int j = 0; j < accounts[i].length; j++) {
+                wealth += accounts[i][j];
+            }
+
+            maxWealth = Math.max(maxWealth, wealth);
+        }
+
+        System.out.println(maxWealth);
+    }
+}
+output:6
+Medium:
+1. Spiral Matrix
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        int[][] matrix = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+
+        ArrayList<Integer> result = new ArrayList<>();
+
+        int top = 0;
+        int bottom = matrix.length - 1;
+        int left = 0;
+        int right = matrix[0].length - 1;
+
+        while (top <= bottom && left <= right) {
+
+            for (int i = left; i <= right; i++)
+                result.add(matrix[top][i]);
+            top++;
+
+            for (int i = top; i <= bottom; i++)
+                result.add(matrix[i][right]);
+            right--;
+
+            if (top <= bottom) {
+                for (int i = right; i >= left; i--)
+                    result.add(matrix[bottom][i]);
+                bottom--;
+            }
+
+            if (left <= right) {
+                for (int i = bottom; i >= top; i--)
+                    result.add(matrix[i][left]);
+                left++;
+            }
+        }
+
+        System.out.println(result);
+    }
+}
+output:[1, 2, 3, 6, 9, 8, 7, 4, 5]
+2. Spiral Matrix II
+public class Main {
+    public static void main(String[] args) {
+        int n = 3;
+        int[][] matrix = new int[n][n];
+
+        int top = 0, bottom = n - 1;
+        int left = 0, right = n - 1;
+        int value = 1;
+
+        while (top <= bottom && left <= right) {
+
+            for (int i = left; i <= right; i++)
+                matrix[top][i] = value++;
+            top++;
+
+            for (int i = top; i <= bottom; i++)
+                matrix[i][right] = value++;
+            right--;
+
+            if (top <= bottom) {
+                for (int i = right; i >= left; i--)
+                    matrix[bottom][i] = value++;
+                bottom--;
+            }
+
+            if (left <= right) {
+                for (int i = bottom; i >= top; i--)
+                    matrix[i][left] = value++;
+                left++;
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+output:
+1 2 3
+8 9 4
+7 6 5
+3. Spiral Matrix III
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        int rows = 5;
+        int cols = 6;
+        int rStart = 1;
+        int cStart = 4;
+
+        int[][] result = new int[rows * cols][2];
+
+        int index = 0;
+        int r = rStart;
+        int c = cStart;
+
+        result[index++] = new int[]{r, c};
+
+        int step = 1;
+
+        while (index < rows * cols) {
+
+            // Move right
+            for (int i = 0; i < step; i++) {
+                c++;
+                if (r >= 0 && r < rows && c >= 0 && c < cols)
+                    result[index++] = new int[]{r, c};
+            }
+
+            // Move down
+            for (int i = 0; i < step; i++) {
+                r++;
+                if (r >= 0 && r < rows && c >= 0 && c < cols)
+                    result[index++] = new int[]{r, c};
+            }
+
+            step++;
+
+            // Move left
+            for (int i = 0; i < step; i++) {
+                c--;
+                if (r >= 0 && r < rows && c >= 0 && c < cols)
+                    result[index++] = new int[]{r, c};
+            }
+
+            // Move up
+            for (int i = 0; i < step; i++) {
+                r--;
+                if (r >= 0 && r < rows && c >= 0 && c < cols)
+                    result[index++] = new int[]{r, c};
+            }
+
+            step++;
+        }
+
+        for (int[] position : result) {
+            System.out.println(Arrays.toString(position));
+        }
+    }
+}
+output:[1, 4]
+[1, 5]
+[2, 5]
+[2, 4]
+[2, 3]
+[1, 3]
+[0, 3]
+[0, 4]
+[0, 5]
+[1, 2]
+...
+4. Set Matrix Zeroes
+public class Main {
+    public static void main(String[] args) {
+        int[][] matrix = {
+            {1, 1, 1},
+            {1, 0, 1},
+            {1, 1, 1}
+        };
+
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+
+        boolean[] rowZero = new boolean[rows];
+        boolean[] colZero = new boolean[cols];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (matrix[i][j] == 0) {
+                    rowZero[i] = true;
+                    colZero[j] = true;
+                }
+            }
+        }
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (rowZero[i] || colZero[j]) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+
+        for (int[] row : matrix) {
+            for (int value : row) {
+                System.out.print(value + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+output:
+1 0 1
+0 0 0
+1 0 1
+Hard:
+1. Max Value of Equation
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        int[][] points = {
+            {1, 3},
+            {2, 0},
+            {5, 10},
+            {6, -10}
+        };
+
+        int k = 1;
+        Deque<Integer> deque = new ArrayDeque<>();
+
+        int answer = Integer.MIN_VALUE;
+
+        for (int i = 0; i < points.length; i++) {
+
+            while (!deque.isEmpty()
+                    && points[i][0] - points[deque.peekFirst()][0] > k) {
+                deque.pollFirst();
+            }
+
+            if (!deque.isEmpty()) {
+                int j = deque.peekFirst();
+
+                answer = Math.max(answer,
+                        points[i][0] + points[i][1]
+                        + points[j][1] - points[j][0]);
+            }
+
+            while (!deque.isEmpty()
+                    && points[deque.peekLast()][1] - points[deque.peekLast()][0]
+                    <= points[i][1] - points[i][0]) {
+                deque.pollLast();
+            }
+
+            deque.addLast(i);
+        }
+
+        System.out.println(answer);
+    }
+}
+output:4
+10. First Missing Positive
+public class Main {
+    public static void main(String[] args) {
+
+        int[] nums = {3, 4, -1, 1};
+
+        int n = nums.length;
+
+        for (int i = 0; i < n; i++) {
+
+            while (nums[i] > 0 &&
+                   nums[i] <= n &&
+                   nums[nums[i] - 1] != nums[i]) {
+
+                int temp = nums[i];
+
+                nums[i] = nums[temp - 1];
+
+                nums[temp - 1] = temp;
+            }
+        }
+
+        int answer = n + 1;
+
+        for (int i = 0; i < n; i++) {
+            if (nums[i] != i + 1) {
+                answer = i + 1;
+                break;
+            }
+        }
+
+        System.out.println(answer);
+    }
+}
+output:2
